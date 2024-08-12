@@ -8,6 +8,7 @@ import {
   signInWithPopup,
 } from "./services/firebase";
 import { useAuth } from "./hooks/useAuth";
+import LoginPage from "./pages/login";
 
 const App = () => {
   const { user, loading }: any = useAuth();
@@ -39,19 +40,19 @@ const App = () => {
     return <div>Loading...</div>;
   }
 
-  if (!user) {
-    return (
-      <div>
-        You need to log in to view this page.
-        <br />
-        <button onClick={handleLogin}>Sign in with Google</button>
-      </div>
-    );
-  }
+  // if (!user) {
+  //   return (
+  //     <div>
+  //       You need to log in to view this page.
+  //       <br />
+  //       <button onClick={handleLogin}>Sign in with Google</button>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div>
-      <h1>Firestore Data</h1>
+      {/* <h1>Firestore Data</h1>
       <ul>
         {data.map((item: DocumentData, index: number) => (
           <li key={index}>{JSON.stringify(item)}</li>
@@ -59,7 +60,8 @@ const App = () => {
       </ul>
       <div>{`You are logged in with ${user.email}`}</div>
       <br />
-      {user ? <button onClick={logOut}>Log out</button> : <></>}
+      {user ? <button onClick={logOut}>Log out</button> : <></>} */}
+      <LoginPage />
     </div>
   );
 };
