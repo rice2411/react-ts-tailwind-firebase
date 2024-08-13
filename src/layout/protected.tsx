@@ -3,9 +3,9 @@ import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
-const ProtectedRoute = () => {
+const ProtectedRoute = (props: any) => {
   const { user }: any = useAuth();
-  return user ? <Outlet /> : <Navigate to="/login" />;
+  return user ? { ...props.children } : <Navigate to="/login" />;
 };
 
 export default ProtectedRoute;
